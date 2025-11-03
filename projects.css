@@ -12,6 +12,45 @@ body {
     background-color: var(--primary-color);
 }
 
+.sanrio-card {
+    background-color: var(--secondary-color);
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0);
+    transition: 0.3s;
+    border: 20px solid var(--secondary-color);
+    border-radius: 8px;
+
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+}
+
+h3 {
+    color: var(--primary-color)
+}
+
+.btn {
+    background-color: var(--container-color);
+    font-family: var(--secondary-font);
+    border-radius: 8px;
+
+    &:hover {
+        background-color: lightblue;
+        cursor: pointer;
+    }
+}
+
+img {
+    border-radius: 8px;
+    }
+
+.sanrio-container {
+    padding: 2px 16px;
+    font-family: var(--secondary-font);
+    /* background-color: var(--container-color); */
+}
+
 nav {
     /* background-color: #dbe4ee; */
     position: absolute;
