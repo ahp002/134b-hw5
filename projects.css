@@ -79,19 +79,15 @@ img {
 .sanrio-container {
     padding: 2px 16px;
     font-family: var(--secondary-font);
-    /* background-color: var(--container-color); */
 }
 
 .portfolio-container {
     padding: 2px 16px;
     font-family: var(--secondary-font);
-    /* background-color: var(--container-color); */
 }
 
 nav {
-    /* background-color: #dbe4ee; */
     position: absolute;
-    /* height: fit-content; */
     top: 0.5rem;
     right: 5%;
     font-family: var(--primary-font, sans-serif);
