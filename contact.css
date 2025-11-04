@@ -9,15 +9,14 @@
 }
 
 body {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color, white);
+    display: flex;
 }
 
 h2 {
     font-family: var(--primary-font, sans-serif);
     color: white;
-    position: absolute;
-    top: 20%;
-    right: 65%;
+    display: flex;
 }
 
 .connections {
@@ -120,10 +119,19 @@ nav a {
     color: black;
 }
 
+.submit {
+    font-family: var(--primary-font, sans-serif);
+    border-radius: 8px;
+    
+    &:hover {
+        background-color: gray;
+    }
+}
+
 footer {
     position: absolute;
     bottom: 0;
     width: 99dvw;
-    color: var(--title-color);
+    color: var(--title-color, black);
     font-family: var(--primary-font, sans-serif);
 }
