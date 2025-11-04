@@ -159,3 +159,55 @@ footer {
     color: var(--title-color, black);
     font-family: var(--primary-font, sans-serif);
 }
+
+#menu-toggle {
+    display: none;
+}
+
+.menu {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    }
+    
+    main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 2rem;
+    padding: 2rem 0;
+    font-family: var(--secondary-font, sans-serif);   
+    }
+
+    h2 {
+    font-family: var(--primary-font, sans-serif);
+    color: white;
+    align-self: flex-start;
+    flex-wrap: wrap;
+    margin-top: 10rem;
+    font-size: 20px;
+    }
+
+    picture {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 40px;
+    }
+
+
+}
