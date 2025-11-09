@@ -1,28 +1,32 @@
 input[type=text], select, textarea {
     display: flex;
     width: 20%;
+    /* space inside field */
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
+    /* space between each field */
     margin-bottom: 16px;
-    resize: vertical;
 }
 
 input[type=email], select, textarea {
     display: flex;
     width: 20%;
     padding: 12px;
-    border: 1px solid #ccc; 
+    border: 2px solid #ccc; 
     border-radius: 4px; 
     box-sizing: border-box; 
     margin-top: 6px; 
     margin-bottom: 16px;
-    resize: vertical;
 }
 
 input:invalid:focus {
     border: 2px solid red;
+}
+
+.required {
+    color: red;
 }
 
