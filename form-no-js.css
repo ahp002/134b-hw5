@@ -15,11 +15,26 @@ input[type=email], select, textarea {
     display: flex;
     width: 20%;
     padding: 12px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px;
+}
+
+input[type=submit] {
+    display: flex;
+    padding: 8px;
     border: 2px solid #ccc; 
     border-radius: 4px; 
     box-sizing: border-box; 
     margin-top: 6px; 
     margin-bottom: 16px;
+    background-color: white;
+
+    &:hover {
+        background-color: rgb(206, 203, 203);
+    }
 }
 
 input:invalid:focus {
