@@ -40,14 +40,6 @@ input[type=submit] {
     }
 }
 
-/* input:invalid:focus {
-    border: 2px solid red;
-} */
-
-form.submitted input:invalid {
-    border: 2px solid red;
-}
-
 .required {
     color: red;
 }
