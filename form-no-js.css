@@ -1,5 +1,6 @@
 input[type=text], select, textarea {
     display: flex;
+    flex-direction: column;
     width: 20%;
     /* space inside field */
     padding: 12px;
@@ -13,6 +14,7 @@ input[type=text], select, textarea {
 
 input[type=email], select, textarea {
     display: flex;
+    flex-direction: column;
     width: 20%;
     padding: 12px;
     border: 1px solid #ccc; 
@@ -24,6 +26,7 @@ input[type=email], select, textarea {
 
 input[type=submit] {
     display: flex;
+    flex-direction: column;
     padding: 13px;
     border: 2px solid #ccc; 
     border-radius: 100px; 
@@ -57,17 +60,12 @@ output.error {
     color: red;
 } */
 
-output.name-info {
+output.name-info, output.email-info, output.comment-info {
+    display: flex;
     color: gray;
     font-size: 13px;
-}
-
-output.email-info {
-    color: gray;
-    font-size: 13px;
-}
-
-output.comment-info {
-    color: gray;
-    font-size: 13px;
+    /* space between info and field */
+    margin-top: -10px;
+    /* space between info and next field */
+    margin-bottom: 20px;
 }
