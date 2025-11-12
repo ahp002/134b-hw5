@@ -26,10 +26,10 @@ function enforceCharacterRules(event) {
 
 const nameInput = document.getElementById("name");
 nameInput.addEventListener("input", enforceCharacterRules);
-
-
 const form = document.querySelector("form");
 const nameIn = document.getElementById("name");
+const emailIn = document.getElementById("email");
+const commentIn = document.getElementById("comment");
 
 function nameError(n) {
     n.addEventListener("input", () => {
@@ -43,8 +43,26 @@ function nameError(n) {
     });
 }
 
+function emailError(em) {
+    em.addEventListener("input", () => {
+        if (em.validity.valueMissing) {
+            em.setCustomValidity("Email cannot be blank.");
+        } else if (em.validity.tooShort) {
+            em.setCustomValidity("Email must be at least 5 characters.");
+        } else if (em.validity.typeMismatch){
+            em.setCustomValidity("Entered value must be an email address (e.g. johndoe@gmail.com)");
+        } else
+            em.setCustomValidity("");
+    });
+}
+
 nameError(nameIn);
+emailError(emailIn);
+
+
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+    if (!form.checkValidity()) {
+        e.preventDefault();
+    }
 });
