@@ -27,21 +27,24 @@ function enforceCharacterRules(event) {
 const nameInput = document.getElementById("name");
 nameInput.addEventListener("input", enforceCharacterRules);
 
-const form = document.getElementById("form");
-function validateName() {
-    nameInput.setCustomValidity("");
-    if (!nameInput.checkValidity()) {
-        nameInput.setCustomValidity("Name cannot be blank.");
-        e.preventDefault(); 
-        return false;
-    }
-    else if (nameInput.validity.tooShort) {
-        nameInput.setCustomValidity("Name must be at least 4 characters.");
-        e.preventDefault(); 
-        return false;
-    }
-    nameInput.setCustomValidity("");
-    return true;
+
+const form = document.querySelector("form");
+const nameIn = document.getElementById("name");
+
+function nameError(n) {
+    n.addEventListener("input", () => {
+        if (n.validity.valueMissing) {
+            n.setCustomValidity("Name cannot be blank.");
+        } else if (n.validity.tooShort) {
+            n.setCustomValidity("Name must be at least 4 characters.");
+        } else {
+            n.setCustomValidity("");
+        }
+    });
 }
 
-form.addEventListener("Submit", validateName());
+nameError(nameIn);
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
