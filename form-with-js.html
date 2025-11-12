@@ -8,7 +8,7 @@
     </head>
     <body>
         <main>
-            <form action="https://httpbin.org/post" method="post">
+            <form novalidate id="form" action="https://httpbin.org/post" method="post">
                 <label for="fname"><span class="required">* </span>Full Name:</label>
                 <input type="text" id="name" name="fullname" pattern="[A-Z a-z]*" minlength="4" maxlength="30" required placeholder="John Doe">
                 <!-- <output class="error">Name must be at least 4 characters. Valid characters include A-z.</output> -->
