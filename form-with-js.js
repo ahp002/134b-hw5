@@ -56,8 +56,18 @@ function emailError(em) {
     });
 }
 
+function commentError(c) {
+    c.addEventListener("input", () => {
+        if (c.validity.valueMissing) {
+            c.setCustomValidity("Comments cannot be blank.");
+        } else
+            c.setCustomValidity("");
+    });
+}
+
 nameError(nameIn);
 emailError(emailIn);
+commentError(commentIn);
 
 
 
