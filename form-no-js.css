@@ -9,7 +9,7 @@ input[type=text], input[type=email], select, textarea {
     box-sizing: border-box;
     margin-top: 6px;
     /* space between each field */
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 input[type=submit] {
@@ -38,8 +38,8 @@ input[type=submit] {
     color: red;
     font-size: 13px;
     transition: opacity 1s ease;
-    margin-top: 5px;
-    margin-bottom: 17px;
+    margin-top: -10px;
+    margin-bottom: 15px;
 }
 
 .error.show {
@@ -58,5 +58,5 @@ output.info {
     /* space between info and field */
     margin-top: -10px;
     /* space between info and next field */
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
 }

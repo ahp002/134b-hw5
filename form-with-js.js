@@ -1,4 +1,4 @@
-const allowedChars1 = /^[A-Za-z]*$/;
+const allowedChars1 = /^[A-Za-z\s]*$/;
 
 function showError(input, message) {
     const errOut = document.getElementById(input.id + "-error");
@@ -13,9 +13,12 @@ function showError(input, message) {
 }
 
 function enforceCharacterRules(event) {
-    if (!allowedChars1.test(event.target.value)) {
-        showError(event.target, "Invalid character entered.");
-        event.target.value = event.target.value.replace(/[^A-Za-z\s]/g, "");
+    const input = event.target;
+    if (!allowedChars1.test(input.value)) {
+        showError(input, "Invalid character entered.");
+        input.value = input.value.replace(/[^A-Za-z\s]/g, "");
+    } else {
+        input.classList.remove("flash");
     }
 }
 
