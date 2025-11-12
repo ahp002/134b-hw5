@@ -32,22 +32,31 @@ input[type=submit] {
     color: red;
 }
 
-/* output {
-    display: none;
+.error {
+    display: flex;
+    opacity: 0;
+    color: red;
+    font-size: 13px;
+    transition: opacity 1s ease;
+    margin-top: 5px;
+    margin-bottom: 17px;
 }
 
-output.error {
-    color: red;
-} */
+.error.show {
+    opacity: 1;
+}
 
+input.flash {
+    background-color: #ffcccc;
+    transition: background-color 0.3s ease;
+}
 
-
-output.name-info, output.email-info, output.comment-info {
+output.info {
     display: flex;
     color: gray;
     font-size: 13px;
     /* space between info and field */
     margin-top: -10px;
     /* space between info and next field */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }

@@ -3,12 +3,13 @@ const allowedChars1 = /^[A-Za-z]*$/;
 function showError(input, message) {
     const errOut = document.getElementById(input.id + "-error");
     errOut.textContent = message;
-    errOut.classList.remove("hidden");
-    input.classList.add("flash");
+    errOut.classList.add("show");  
+    input.classList.add("flash");   
+
+
     setTimeout(() => {
-        errOut.classList.add("hidden");
-        input.classList.remove("flash");
-    }, 2000);
+        errOut.classList.remove("show");
+    }, 1000);
 }
 
 function enforceCharacterRules(event) {
@@ -18,8 +19,9 @@ function enforceCharacterRules(event) {
     }
 }
 
+const nameInput = document.getElementById("name");
 nameInput.addEventListener("input", enforceCharacterRules);
 
 nameInput.addEventListener("invalid", (e) => {
-    showError(nameInput, "Please enter your name.");
+    showError(nameInput, "Name must be at least 4 characters. Valid characters include A-z.");
 })
