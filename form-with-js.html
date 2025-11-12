@@ -10,10 +10,10 @@
         <main>
             <form action="https://httpbin.org/post" method="post">
                 <label for="fname"><span class="required">* </span>Full Name:</label>
-                <input type="text" id="fname" name="fullname" pattern="[A-Z a-z]*" minlength="4" maxlength="30" required placeholder="John Doe">
+                <input type="text" id="name" name="fullname" pattern="[A-Z a-z]*" minlength="4" maxlength="30" required placeholder="John Doe">
                 <!-- <output class="error">Name must be at least 4 characters. Valid characters include A-z.</output> -->
                 <output class="error" id="name-error"></output>
-                <output class="name-info" id="name-info">Enter your first and last name.</output>
+                <output class="info" id="name-info">Enter your first and last name.</output>
 
                 <label for="email"><span class="required">* </span>Email:</label>
                 <input type="email" id="email" name="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" minlength="5" required placeholder="johndoe@gmail.com">
