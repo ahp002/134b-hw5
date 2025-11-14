@@ -78,7 +78,7 @@ form.addEventListener("submit", (e) => {
 const maxLength = 1000;
 const counter = document.getElementById("char-count");
 const textArea = document.getElementById("comment");
-const wholeCounter = document.getElementById("counter");
+const wholeCounter = document.getElementById("cnt");
 
 textArea.addEventListener("input", function() {
     const inputVal = this.value;
