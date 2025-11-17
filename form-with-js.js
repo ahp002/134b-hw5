@@ -1,11 +1,8 @@
 const allowedChars1 = /^[A-Za-z\s]*$/;
 const formErr = document.getElementById("form-errors");
 const form_err = [];
-function showError(input, message, hide = false) {
+function showError(input, message, hide) {
     const errOut = document.getElementById(input.id + "-error");
-    errOut.textContent = message;
-    errOut.classList.add("show");  
-    input.classList.add("flash");   
 
     form_err.push({
         field: input.id,
@@ -13,20 +10,22 @@ function showError(input, message, hide = false) {
         value: input.value
     });
 
-    if (hide == false) {
-        return;
+    if (!hide) {
+        errOut.textContent = message;
+        errOut.classList.add("show");  
+        input.classList.add("flash");   
+        setTimeout(() => {
+        errOut.classList.remove("show");
+        }, 1000);
     }
 
-    setTimeout(() => {
-        errOut.classList.remove("show");
-    }, 1000);
 }
 
 function enforceCharacterRules(event) {
     const input = event.target;
     input.setCustomValidity("");
     if (!allowedChars1.test(input.value)) {
-        showError(input, "Invalid character entered.", true);
+        showError(input, "Invalid character entered.", false);
         input.value = input.value.replace(/[^A-Za-z\s]/g, "");
     } else {
         input.classList.remove("flash");
@@ -42,13 +41,14 @@ const emailIn = document.getElementById("email");
 const commentIn = document.getElementById("comment");
 
 function nameError(n) {
+    if (nameIn.validity.valueMissing) {
+        showError(nameIn, "Name cannot be blank.", true);
+        n.setCustomValidity("Name cannot be blank.");
+    }
     n.addEventListener("input", () => {
-        if (n.validity.valueMissing) {
-            n.setCustomValidity("Name cannot be blank.");
-            showError(nameIn, "Name cannot be blank.", false);
-        } else if (n.validity.tooShort) {
+        if (n.validity.tooShort) {
+            showError(nameIn, "Name must be at least 4 characters.", true);
             n.setCustomValidity("Name must be at least 4 characters.");
-            showError(nameIn, "Name must be at least 4 characters.", false);
         } else {
             n.setCustomValidity("");
         }
@@ -56,12 +56,16 @@ function nameError(n) {
 }
 
 function emailError(em) {
+    if (emailIn.validity.valueMissing) {
+        showError(emailIn, "Email cannot be blank.", true);
+        em.setCustomValidity("Email cannot be blank.");
+    }
     em.addEventListener("input", () => {
-        if (em.validity.valueMissing) {
-            em.setCustomValidity("Email cannot be blank.");
-        } else if (em.validity.tooShort) {
+         if (em.validity.tooShort) {
+            showError(emailIn, "Email must be at least 5 characters.", true);
             em.setCustomValidity("Email must be at least 5 characters.");
         } else if (em.validity.typeMismatch){
+            showError(emailIn, "Entered value must be an email address (e.g. johndoe@gmail.com)", true);
             em.setCustomValidity("Entered value must be an email address (e.g. johndoe@gmail.com)");
         } else
             em.setCustomValidity("");
@@ -69,12 +73,10 @@ function emailError(em) {
 }
 
 function commentError(c) {
-    c.addEventListener("input", () => {
-        if (c.validity.valueMissing) {
-            c.setCustomValidity("Comments cannot be blank.");
-        } else
-            c.setCustomValidity("");
-    });
+    if (commentIn.validity.valueMissing) {
+        showError(commentIn, "Comments cannot be blank.", true)
+        c.setCustomValidity("Comments cannot be blank.");
+    } c.setCustomValidity("");
 }
 
 nameError(nameIn);
@@ -104,5 +106,4 @@ form.addEventListener("submit", function(e) {
     }
     formErr.value = JSON.stringify(form_err);
 });
-// formErr.value = JSON.stringify(form_err);
 
