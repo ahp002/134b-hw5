@@ -1,10 +1,17 @@
 const allowedChars1 = /^[A-Za-z\s]*$/;
-
-function showError(input, message) {
+const formErr = document.getElementById("form-errors");
+const form_err = [];
+function showError(input, message, show = false) {
     const errOut = document.getElementById(input.id + "-error");
     errOut.textContent = message;
     errOut.classList.add("show");  
     input.classList.add("flash");   
+
+    form_err.push({
+        field: input.id,
+        reason: message,
+        value: input.value
+    });
 
 
     setTimeout(() => {
@@ -16,7 +23,7 @@ function enforceCharacterRules(event) {
     const input = event.target;
     input.setCustomValidity("");
     if (!allowedChars1.test(input.value)) {
-        showError(input, "Invalid character entered.");
+        showError(input, "Invalid character entered.", true);
         input.value = input.value.replace(/[^A-Za-z\s]/g, "");
     } else {
         input.classList.remove("flash");
@@ -34,9 +41,9 @@ const commentIn = document.getElementById("comment");
 function nameError(n) {
     n.addEventListener("input", () => {
         if (n.validity.valueMissing) {
-            n.setCustomValidity("Name cannot be blank.");
+            showError(nameIn, "Name cannot be blank.");
         } else if (n.validity.tooShort) {
-            n.setCustomValidity("Name must be at least 4 characters.");
+            showError(nameIn, "Name must be at least 4 characters.");
         } else {
             n.setCustomValidity("");
         }
@@ -69,12 +76,6 @@ nameError(nameIn);
 emailError(emailIn);
 commentError(commentIn);
 
-form.addEventListener("submit", (e) => {
-    if (!form.checkValidity()) {
-        e.preventDefault();
-    }
-});
-
 const maxLength = 1000;
 const counter = document.getElementById("char-count");
 const textArea = document.getElementById("comment");
@@ -91,3 +92,12 @@ textArea.addEventListener("input", function() {
         wholeCounter.style.color = "gray";
     }
 });
+
+form.addEventListener("submit", function(e) {
+    if (!form.checkValidity()) {
+        e.preventDefault();
+    }
+    formErr.value = JSON.stringify(form_err);
+});
+// formErr.value = JSON.stringify(form_err);
+
