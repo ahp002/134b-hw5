@@ -48,6 +48,8 @@ const commentIn = document.getElementById("comment");
 
 function nameError(n) {
     if (nameIn.validity.valueMissing) {
+        n.setCustomValidity("Name cannot be blank.");
+        showError(nameIn, "Name cannot be blank.", true);
         showInfo(nameIn, "Enter your first and last name.");
     }
     n.addEventListener("input", () => {
@@ -62,6 +64,8 @@ function nameError(n) {
 
 function emailError(em) {
     if (emailIn.validity.valueMissing) {
+        showError(emailIn, "Email cannot be blank.", true);
+        em.setCustomValidity("Email cannot be blank.");
         showInfo(emailIn, "Use an '@' symbol and a valid domain (e.g., .com, .edu).");
     }
     em.addEventListener("input", () => {
@@ -78,6 +82,8 @@ function emailError(em) {
 
 function commentError(c) {
     if (commentIn.validity.valueMissing) {
+        showError(commentIn, "Comments cannot be blank.", true)
+        c.setCustomValidity("Comments cannot be blank.");
         showInfo(commentIn, "Describe your feedback clearly. (Maximum 1000 chars)");
     } c.setCustomValidity("");
 }
