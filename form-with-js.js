@@ -18,7 +18,13 @@ function showError(input, message, hide) {
         errOut.classList.remove("show");
         }, 1000);
     }
+}
 
+function showInfo(input, message) {
+    const info = document.getElementById(input.id + "-info");
+
+    info.textContent = message;
+    info.classList.add("show");
 }
 
 function enforceCharacterRules(event) {
@@ -42,8 +48,7 @@ const commentIn = document.getElementById("comment");
 
 function nameError(n) {
     if (nameIn.validity.valueMissing) {
-        showError(nameIn, "Name cannot be blank.", true);
-        n.setCustomValidity("Name cannot be blank.");
+        showInfo(nameIn, "Enter your first and last name.");
     }
     n.addEventListener("input", () => {
         if (n.validity.tooShort) {
@@ -57,8 +62,7 @@ function nameError(n) {
 
 function emailError(em) {
     if (emailIn.validity.valueMissing) {
-        showError(emailIn, "Email cannot be blank.", true);
-        em.setCustomValidity("Email cannot be blank.");
+        showInfo(emailIn, "Use an '@' symbol and a valid domain (e.g., .com, .edu).");
     }
     em.addEventListener("input", () => {
          if (em.validity.tooShort) {
@@ -74,8 +78,7 @@ function emailError(em) {
 
 function commentError(c) {
     if (commentIn.validity.valueMissing) {
-        showError(commentIn, "Comments cannot be blank.", true)
-        c.setCustomValidity("Comments cannot be blank.");
+        showInfo(commentIn, "Describe your feedback clearly. (Maximum 1000 chars)");
     } c.setCustomValidity("");
 }
 
@@ -106,4 +109,3 @@ form.addEventListener("submit", function(e) {
     }
     formErr.value = JSON.stringify(form_err);
 });
-
