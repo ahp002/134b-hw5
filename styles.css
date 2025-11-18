@@ -138,3 +138,9 @@ nav a {
     background-color: #ddd;
     color: black;
 }
+
+#mode {
+    position: absolute;
+    top: 0.5rem;
+    right: 5%;
+}
