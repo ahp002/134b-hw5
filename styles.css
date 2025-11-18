@@ -144,4 +144,14 @@ nav a {
     top: 1rem;
     right: 1%;
     font-size: 20px;
+
+    &:hover {
+        background-color: rgb(177, 170, 170);
+    }
 }
+
+.bottom.dark-mode {
+    background-color: black;
+    color: white;
+}
+
