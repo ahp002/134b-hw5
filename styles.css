@@ -16,7 +16,6 @@ html, body {
     --mix-color: color-mix(in oklab, var(--primary-color), white 30%);
 }
 
-
 .top {
     height: 100vh;
     background-color: var(--primary-color);
@@ -142,4 +141,47 @@ nav a {
 
 html {
     scrollbar-gutter: stable;
+}
+
+#transition {
+    position: absolute;
+    top: 0.5rem;
+    left: 5%;
+    font-family: var(--primary-font, sans-serif);
+}
+
+#mode {
+    
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes move-out {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes move-in {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+::view-transition-old(root) {
+  animation: 0.4s ease-in both move-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.4s ease-in both move-in;
 }
