@@ -1,0 +1,21 @@
+html {
+    scrollbar-gutter: stable;
+    view-transition-name: page;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(page) {
+  animation: fade-out 0.3s ease forwards;
+}
+
+::view-transition-new(page) {
+  animation: fade-in 0.3s ease forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -89,7 +89,3 @@ footer {
     color: var(--color);
     font-family: var(--primary-font, sans-serif);
 }
-
-html {
-    scrollbar-gutter: stable;
-}

@@ -170,7 +170,3 @@ footer {
     color: white;
     cursor: pointer;
 }
-
-html {
-    scrollbar-gutter: stable;
-}

@@ -138,31 +138,3 @@ nav a {
     background-color: #ddd;
     color: black;
 }
-
-html {
-    scrollbar-gutter: stable;
-}
-
-@view-transition {
-    navigation: auto;
-}
-
-#visi {view-transition-name: smooth;}
-#visp {view-transition-name: smooth;}
-
-::view-transition-old(smooth) {
-  animation: fade 0.2s linear forwards;
-}
-
-::view-transition-new(smooth) {
-  animation: fade 0.3s linear reverse;
-}
-
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
