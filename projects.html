@@ -43,8 +43,10 @@
                 >
                 </project-card> -->
             </div>
-            <button id="load-local">Load Local</button>
-            <button id="load-remote">Load Remote</button>
+            <div id="load-buttons">
+                <button id="load-local">Load Local</button>
+                <button id="load-remote">Load Remote</button>
+            </div>
         </main>
         <footer>
             <hr>
@@ -70,12 +72,12 @@
             }
             ];
 
-            const container = document.querySelector('.cards');
+            const proj = document.getElementById('cards');
 
             localStorage.setItem('projects', JSON.stringify(local));
             document.getElementById('load-local').addEventListener('click', () => {
                 const projects = JSON.parse(localStorage.getItem('projects')) || [];
-                container.innerHTML = '';
+                proj.innerHTML = '';
                 projects.forEach(project => {
                     const card = document.createElement('project-card');
                     card.setAttribute('title', project.title);
@@ -84,14 +86,14 @@
                     card.setAttribute('description', project.description);
                     card.setAttribute('github', project.github);
                     card.setAttribute('website', project.website);
-                    container.appendChild(card);
+                    proj.appendChild(card);
                 });
             });
 
             // remote way of fetching cards
             const url = "https://api.jsonbin.io/v3/b/692ea405d0ea881f400d5fd9";
             let records = {};
-            document.getElementById('loadRemote').addEventListener('click', async () => {
+            document.getElementById('load-remote').addEventListener('click', async () => {
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -99,6 +101,7 @@
                 }
                 const jsonData = await response.json();
                 records = jsonData.record;
+                proj.innerHTML = '';
                 Object.keys(records).forEach(key => {
                     const project = records[key];
                     const card = document.createElement("project-card");
@@ -108,6 +111,7 @@
                     card.setAttribute("description", `${project.description}`);
                     card.setAttribute("github", `${project.github}`);
                     card.setAttribute("website", `${project.website}`);
+                    proj.appendChild(card);
                 });
             }
             catch (error) {
