@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="projects.js"></script>
+        <script type="module" src="projects.js"></script>
     </head>
     <body>
     <header>
@@ -24,19 +24,17 @@
         <main>
             <h1>My Work</h1>
             <div class="cards">
-            </div>
-            <!-- <div class="portfolio-card">
-                <img src="imgs/home-page.png" alt="image of Alicia Pham's personal portfolio home page" width="300px" height="175px">
-                <div class="portfolio-container">
-                    <h3>My Personal Portfolio</h3>
-                    <a href="" target="_blank">
-                        <button class="btn" type="button">View in your browser</button></a>
-                    <a href="https://github.com/ahp002/CSE134B-HW3" target="_blank">
-                    <button class="btn" type="button">View on GitHub</button></a>
-                </div>
+                <project-card
+                    img="imgs/home-page.png"
+                    alt="image of Alicia Pham's personal portfolio home page"
+                    title="My Personal Portfolio"
+                    description="My personal portfolio site aka what you're viewing this page on right now!"
+                    github="https://github.com/ahp002/CSE134B-HW3"
+                    website="">
+                </project-card>
             </div>
 
-            <div class="sanrio-card">
+            <!-- <div class="sanrio-card">
                 <img src="imgs/sanrio.png" alt="Sanrio Games and Quizzes website" width="300px" height="175px">
                 <div class="sanrio-container">
                     <h3>Sanrio Games and Quizzes</h3>
@@ -46,6 +44,7 @@
                     <button class="btn" type="button">View on GitHub</button></a>
                 </div>
             </div> -->
+
         </main>
         <footer>
             <hr>
