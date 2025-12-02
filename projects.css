@@ -12,6 +12,26 @@ body {
     background-color: var(--primary-color);
 }
 
+
+h1 {
+    position: absolute;
+    left: 60px;
+    top: 60px;
+    font-family: var(--primary-font);
+    color: white;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    margin-top: 15%;
+    justify-content: center;
+
+}
+
+/* 
 .sanrio-card {
     background-color: var(--secondary-color);
     width: 300px;
@@ -46,14 +66,6 @@ body {
     transform: scale(1.02);
 }
 
-h1 {
-    position: absolute;
-    left: 60px;
-    top: 60px;
-    font-family: var(--primary-font);
-    color: white;
-}
-
 h3 {
     color: var(--title-color);
 }
@@ -84,7 +96,11 @@ img {
 .portfolio-container {
     padding: 2px 16px;
     font-family: var(--secondary-font);
-}
+} */
+
+
+
+/* Basic Style Across All Pages */
 
 nav {
     position: absolute;
