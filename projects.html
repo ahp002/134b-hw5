@@ -51,6 +51,7 @@
             <p>Made with &hearts; by Alicia Pham</p>
         </footer>
         <script>
+            // local way of fetching the cards
             const local = [{
                 title: "My Portfolio",
                 img: "imgs/home-page.png",
@@ -59,6 +60,28 @@
                 github: "https://github.com/ahp002/CSE134B-HW3",
                 website: ""
             }];
+
+            const container = document.querySelector('.cards');
+
+            if (!localStorage.getItem('projects')) {
+                localStorage.setItem('projects', JSON.stringify(local));
+            }
+            document.getElementById('load-local').addEventListener('click', () => {
+                const projects = JSON.parse(localStorage.getItem('projects')) || [];
+                container.innerHTML = '';
+                projects.forEach(project => {
+                    const card = document.createElement('project-card');
+                    card.setAttribute('title', project.title);
+                    card.setAttribute('img', project.img);
+                    card.setAttribute('alt', project.alt);
+                    card.setAttribute('description', project.description);
+                    card.setAttribute('github', project.github);
+                    card.setAttribute('website', project.website);
+                    container.appendChild(card);
+                });
+            });
+
+            // remote way of fetching cards
             const url = "https://api.jsonbin.io/v3/b/692ea405d0ea881f400d5fd9";
         </script>
     </body>
