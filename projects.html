@@ -23,7 +23,7 @@
     </header>
         <main>
             <h1>My Work</h1>
-            <div class="cards">
+            <div id="cards">
                 <!-- <project-card
                     img="imgs/home-page.png"
                     alt="image of Alicia Pham's personal portfolio home page"
@@ -69,7 +69,7 @@
                 website: "https://github.com/ILayon/WIC-Team-10-Project"
             }
             ];
-            console.log("Local length:", local.length);
+
             const container = document.querySelector('.cards');
 
             localStorage.setItem('projects', JSON.stringify(local));
@@ -90,6 +90,30 @@
 
             // remote way of fetching cards
             const url = "https://api.jsonbin.io/v3/b/692ea405d0ea881f400d5fd9";
+            let records = {};
+            document.getElementById('loadRemote').addEventListener('click', async () => {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+                const jsonData = await response.json();
+                records = jsonData.record;
+                Object.keys(records).forEach(key => {
+                    const project = records[key];
+                    const card = document.createElement("project-card");
+                    card.setAttribute("title", `${project.title}`);
+                    card.setAttribute("img", `${project.img}`);
+                    card.setAttribute("alt", `${project.alt}`);
+                    card.setAttribute("description", `${project.description}`);
+                    card.setAttribute("github", `${project.github}`);
+                    card.setAttribute("website", `${project.website}`);
+                });
+            }
+            catch (error) {
+                console.error(error.message);
+            }
+            });
         </script>
     </body>
 </html>
