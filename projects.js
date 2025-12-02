@@ -1,7 +1,9 @@
+import { cardCss } from '/projects-css.js';
+
 class ProjectCard extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
@@ -12,8 +14,9 @@ class ProjectCard extends HTMLElement {
         const github = this.getAttribute('github') ?? '#'; // button
         const website = this.getAttribute('website') ?? '#'; // another button
 
-        this.innerHTML= '';
-        this.innerHTML += `
+        this.shadowRoot.innerHTML= '';
+        this.shadowRoot.innerHTML += `
+            <style>${cardCss()}</style>
             <div class ="pcard">
             <picture>
             <img src ="${img}" alt="${alt}">
