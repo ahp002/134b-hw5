@@ -53,19 +53,26 @@
         <script>
             // local way of fetching the cards
             const local = [{
-                title: "My Portfolio",
                 img: "imgs/home-page.png",
                 alt: "image of Alicia Pham's portfolio homepage",
+                title: "My Portfolio",
                 description: "My personal portfolio site aka what you're viewing this page on right now!",
                 github: "https://github.com/ahp002/CSE134B-HW3",
                 website: ""
-            }];
-
+                },
+                {
+                img: "imgs/sanrio.png",
+                alt: "image of Sanrio Games and Quizzes website",
+                title: "Sanrio Games and Quizzes",
+                description: "A Buzzfeed inspired website containing a variety of Sanrio themed quizzes and minigames!",
+                github: "https://ilayon.github.io/WIC-Team-10-Project/",
+                website: "https://github.com/ILayon/WIC-Team-10-Project"
+            }
+            ];
+            console.log("Local length:", local.length);
             const container = document.querySelector('.cards');
 
-            if (!localStorage.getItem('projects')) {
-                localStorage.setItem('projects', JSON.stringify(local));
-            }
+            localStorage.setItem('projects', JSON.stringify(local));
             document.getElementById('load-local').addEventListener('click', () => {
                 const projects = JSON.parse(localStorage.getItem('projects')) || [];
                 container.innerHTML = '';
