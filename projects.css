@@ -28,77 +28,22 @@ h1 {
     align-items: center;
     margin-top: 15%;
     justify-content: center;
+    padding-bottom: 60px;
 
 }
 
-/* 
-.sanrio-card {
-    background-color: var(--secondary-color);
-    width: 300px;
-    height: 350px;
-    transition: 0.3s;
-    border: 20px solid var(--secondary-color);
-    border-radius: 8px;
-    position: absolute;
-    left: 60%;
-    top: 20%;
+#load-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
-.sanrio-card:has(:hover) {
-    box-shadow: 0 6px 16px 0 white;
-    transform: scale(1.02);
-}
-
-.portfolio-card {
-    background-color: var(--secondary-color);
-    width: 300px;
-    height: 350px;
-    transition: 0.3s;
-    border: 20px solid var(--secondary-color);
-    border-radius: 8px;
-    position: absolute;
-    left: 18%;
-    top: 20%;
-}
-
-.portfolio-card:has(:hover) {
-    box-shadow: 0 6px 16px 0 white;
-    transform: scale(1.02);
-}
-
-h3 {
-    color: var(--title-color);
-}
-
-.btn {
-    background-color: var(--container-color);
-    font-family: var(--secondary-font);
-    border-radius: 8px;
-    font-size: 12px;
-    margin-top: 40px;
-
+#load-local, #load-remote {
+    font-family: var(--secondary-font, sans-serif);
     &:hover {
         background-color: lightblue;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
     }
 }
-
-img {
-    border-radius: 8px;
-}
-
-.sanrio-container {
-    padding: 2px 16px;
-    font-family: var(--secondary-font);
-}
-
-.portfolio-container {
-    padding: 2px 16px;
-    font-family: var(--secondary-font);
-} */
-
-
 
 /* Basic Style Across All Pages */
 
