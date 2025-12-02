@@ -25,7 +25,7 @@ class ProjectCard extends HTMLElement {
                 <h3 class="title">${title}</h3>
                 <p class="description">${description}</p>
             </hgroup>
-                <div class ="btn">
+                <div class="btn">
                     <a href="${website}" target="_blank">
                     <button type="button">View Site</button>
                     </a>
