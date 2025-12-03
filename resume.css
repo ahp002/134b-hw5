@@ -12,7 +12,16 @@
 body {
     background-color: var(--primary-color);
     height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
+
+main {
+    flex: 1;
+}
+
 
 h1 {
     font-family: var(--primary-font, sans-serif);
@@ -82,10 +91,7 @@ nav a {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 99dvw;
-    /* color: var(--title-color); */
+    width: 100%;
     color: var(--color);
     font-family: var(--primary-font, sans-serif);
 }
