@@ -13,6 +13,12 @@ export function cardCss() {
         font-family: "Montserrat", sans-serif;
         }
 
+        .description {
+        word-wrap: break-word;
+        white-space: normal;
+        width: 100%;
+        }
+
         .pcard:has(:hover) {
             box-shadow: 0 6px 16px 0 white;
             transform: scale(1.02);
