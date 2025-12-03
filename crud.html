@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Project Card CRUD operations</title>
+        <script type="module" src="crud.js"></script>
+        <link rel="stylesheet" href="crud.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    </head>
+    <body>
+    <header>
+
+    </header>
+    <main>
+    <h2>Create Project</h2>
+    <form id="createForm">
+        <input type="text" id="create-img" placeholder="Image URL" required>
+        <input type="text" id="create-alt" placeholder="Alternate description of image" required>
+        <input type="text" id="create-title" placeholder="Title" required>
+        <textarea id="create-description" placeholder="Description of Project" maxlength="107" required></textarea>
+        <input type="text" id="create-github" placeholder="GitHub URL" required>
+        <input type="text" id="create-website" placeholder="Website URL" required>
+        <button id="create" type="submit">Create</button>
+    </form>
+    <h2>Current Projects</h2>
+    <div id="cards">
+        <div id="form1">
+            <p>proj1</p>
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash-alt"></i>
+        </div>
+        <div id="form2">
+            <p>proj2</p>
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash-alt"></i>
+        </div>
+    </div>
+
+    <!-- <button id="update" type="submit">Update</button> -->
+
+
+    <!-- <button id="delete" type="submit">Delete</button> -->
+    </main>
+    </body>
+</html>
