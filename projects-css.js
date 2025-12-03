@@ -20,6 +20,8 @@ export function cardCss() {
 
         .pcard img {
         border-radius: 8px;
+        max-width: 300px;
+        max-height: 170px;
         }
 
         .pcard h3 {
