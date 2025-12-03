@@ -11,7 +11,9 @@ document.getElementById('createForm').addEventListener('submit', (e) => {
     website: document.getElementById('create-website').value.trim()
     };
     projects.push(newProject);
-    localStorage.setItem('projects', JSON.stringify(projects));
+
+    saveStorage(projects);
+    renderProjects(projects);
     e.target.reset();
 });
 
