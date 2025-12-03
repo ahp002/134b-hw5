@@ -17,6 +17,12 @@ export function cardCss() {
         word-wrap: break-word;
         white-space: normal;
         width: 100%;
+        min-height: 60px;
+        }
+
+        picture {
+        flex: 1;
+        max-height: 170px;
         }
 
         .pcard:has(:hover) {
@@ -33,6 +39,7 @@ export function cardCss() {
 
         .pcard h3 {
         color: #274C77;
+        flex-shrink: 0;
         }
 
         button {
@@ -50,6 +57,8 @@ export function cardCss() {
         flex-direction: row;
         text-align: center;
         justify-content: space-around;
+        max-height: 25px;
+        min-height: 24px;
         }
 
         button &:link {
