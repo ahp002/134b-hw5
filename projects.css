@@ -10,8 +10,15 @@
 
 body {
     background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
 
+main {
+    flex: 1;
+}
 
 h1 {
     position: absolute;
@@ -23,6 +30,7 @@ h1 {
 
 #cards {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     gap: 20px;
     align-items: center;
@@ -80,9 +88,8 @@ nav a {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 99dvw;
+    min-height: 50px;
+    width: 100%;
     color: var(--title-color);
     font-family: var(--primary-font, sans-serif);
 }
