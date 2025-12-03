@@ -23,8 +23,53 @@ function updateCard() {
 
 }
 
-function deleteCard() {
-
+function deleteProject() {
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const index = btn.dataset.index; 
+            const projects = loadStorage();
+            projects.splice(index, 1);
+            saveStorage(projects);
+            renderProjects(projects);
+        });
+    });
 }
 
-// list of project cards currently in local storage
+// render list of <card-project>
+function loadStorage() {
+    const p = localStorage.getItem("projects");
+    if (!p) return [];
+    return JSON.parse(p);
+}
+
+function saveStorage(list) {
+    localStorage.setItem("projects", JSON.stringify(list));
+}
+
+function renderProjects(list) {
+    const container = document.getElementById("current-projects");
+    container.innerHTML = "";
+
+    list.forEach((p, index) => {
+    const card = document.createElement("div");
+    card.className = "project-item";
+
+    card.innerHTML = `
+        <p>${p.title}</p>
+        <button class="edit-btn" data-index="${index}">
+            <i class="fas fa-edit"></i>
+        </button>
+        <button class="delete-btn" data-index="${index}">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    `;
+
+    container.appendChild(card);
+});
+deleteProject();
+}
+
+window.onload = function () {
+    const projects = loadStorage();
+    renderProjects(projects);
+};
