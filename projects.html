@@ -74,7 +74,11 @@
 
             const proj = document.getElementById('cards');
 
-            localStorage.setItem('projects', JSON.stringify(local));
+            // localStorage.setItem('projects', JSON.stringify(local));
+            if (!localStorage.getItem('projects')) {
+                localStorage.setItem('projects', JSON.stringify(local));
+            }
+
             document.getElementById('load-local').addEventListener('click', () => {
                 const projects = JSON.parse(localStorage.getItem('projects')) || [];
                 proj.innerHTML = '';
