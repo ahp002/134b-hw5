@@ -41,7 +41,7 @@ function updateCard() {
                 <h3>Title</h3>
                 <input type="text" class="edit-title" value="${project.title}" placeholder="Title"/>
                 <h3>Project Description</h3>
-                <textarea class="edit-description" maxlength="107">${project.description}</textarea>
+                <textarea class="edit-description" maxlength="105">${project.description}</textarea>
                 <h3>GitHub URL</h3>
                 <input type="text" class="edit-github" value="${project.github}" placeholder="GitHub URL"/>
                 <h3>Website URL</h3>
