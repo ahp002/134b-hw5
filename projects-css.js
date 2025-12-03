@@ -22,6 +22,7 @@ export function cardCss() {
         border-radius: 8px;
         max-width: 300px;
         max-height: 170px;
+        object-fit: contain;
         }
 
         .pcard h3 {
